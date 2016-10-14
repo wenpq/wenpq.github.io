@@ -46,7 +46,7 @@ factory('notify', ['$window', function(win) {
 开发者可以在Angular module中，通过注册service名字和service factory函数自由定义自己的service。
 service factory函数会产生单例对象或函数做作为service，这个有service返回的对象或函数会被注入到一个依赖该service的组件中（controller, service, filter or directive）
 
-### Registering Services
+### 注册 Services
 Services are registered to modules via the Module API. Typically you use the Module factory API to register a service:
 ```
 var myModule = angular.module('myModule', []);
@@ -57,12 +57,13 @@ myModule.factory('serviceId', function() {
 });
 Note that you are not registering a service instance, but rather a factory function that will create this instance when called.
 ```
-### Dependencies
+### 依赖
 Services可以有自己的依赖。就像申明controller的依赖一样，你可以在factory函数中申明其依赖项。
 
-For more on dependencies, see the dependency injection docs.
+更多依赖，参看dependency injection docs。
 
-The example module below has two services, each with various dependencies:
+下面的模块有两个services，每个都有不同的依赖项：
+
 ```
 var batchModule = angular.module('batchModule', []);
 
@@ -106,9 +107,9 @@ batchModule.factory('routeTemplateMonitor', ['$route', 'batchLog', '$rootScope',
   }]);
   ```
  
-In the example, note that:
-- The batchLog service depends on the built-in $interval and $log services.
-- The routeTemplateMonitor service depends on the built-in $route service and our custom batchLog service.
+在该例子中，注意:
+- batchLog service 依赖于内建services： $interval 和 $log.
+- routeTemplateMonitor service 依赖于内建service $route 和自定义service batchLog .
 - 两个services都用了数组符号来申明他们的依赖。
 - identifiers在数组中的顺序与参数在factory函数的顺序一致。
 
