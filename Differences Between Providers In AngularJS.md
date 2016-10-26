@@ -54,7 +54,7 @@ app.service('greeting', function(name) {
     };
 });
 ```
-A service is an injectable constructor. You don't need to return object, because AngularJS will create object by new if service used.  
+A service is an injectable constructor. You don't need to return object, because AngularJS will create object if service used.  
 A factory is an injectable function rather than constructor, so a object have to return.
 
 Actually, the $provide has six methods to create custom providers, but service and factory are most common, the six methods are:
@@ -64,3 +64,5 @@ Actually, the $provide has six methods to create custom providers, but service a
 * factory
 * decorator
 * provider
+
+Reference: http://blog.xebia.com/differences-between-providers-in-angularjs/
